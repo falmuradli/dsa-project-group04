@@ -31,4 +31,22 @@ public class Vehicle {
     public boolean isAvailable() {
         return assignedRequestId == null;
     }
+    public String getAssignedRequestId(){
+        return assignedRequestId;
+    }
+    public void assign(String requestId){
+        this.assignedRequestId=requestId;
+    }
+    public void release(String newLocation){
+        this.assignedRequestId =null;
+        this.location = newLocation;
+    }
+    public boolean canHandle(RequestType type){
+        return type == RequestType.ROUTINE ? canHandleRoutine : canHandleEmergency;
+    }
+    @Override 
+    public String toString(){
+        String caps = canHandleRoutine && canHandleEmergency ? "BOTH" : canHandleRoutine ? "ROUTINE" : "EMERGENCY";
+        return id+ "at=" +location+" caps="+caps+" "+(isAvailable() ? "AVAILABLE" : "BUSY("+assignedRequestId+")"); 
+    }
 }
