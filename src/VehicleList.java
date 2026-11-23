@@ -1,7 +1,7 @@
 import java.util.*;
 import model.*;
 
-class VehicleList {
+public class VehicleList {
     private static class Node {
         Vehicle vehicle;
         Node next;
@@ -9,6 +9,7 @@ class VehicleList {
             this.vehicle = vehicle;
         }
     }
+
     private Node head,tail;
     private int size;
     int size(){
@@ -17,44 +18,49 @@ class VehicleList {
 
     public boolean insert(Vehicle vehicle){
         if(find(vehicle.getId()) != null) return false;
+
         Node newVehicle = new Node(vehicle);
-        if(head==null){
-            head=tail=newVehicle;
-        }else{
+
+        if(head == null){
+            head = tail= newVehicle;
+        } else {
             tail.next = newVehicle;
-            tail= newVehicle;
+            tail = newVehicle;
         }
         size++;
         return true;
     }
 
-    Vehicle find(String id){
-        for (Node vhcl = head; vhcl!=null; vhcl = vhcl.next){
-            if(vhcl.vehicle.getId().equals(id)){
-                return vhcl.vehicle;
+    public Vehicle find(String id) {
+        for (Node vehicle = head; vehicle != null; vehicle = vehicle.next){
+            if(vehicle.vehicle.getId().equals(id)){
+                return vehicle.vehicle;
             }
         }
         return null;
     }
 
-    public boolean assign(String id, String requestId){
+
+    public boolean assign(String id, String requestId) {
         Vehicle vehicle = find(id);
-        if(vehicle== null){
+        if(vehicle == null) {
             return false;
         }
         vehicle.assign(requestId);
         return true;
     }
-    public boolean delete(String id){
+
+
+    public boolean delete(String id) {
         Node previous = null;
-        for(Node current = head; current!=null; previous=current,current = current.next){
+        for(Node current = head; current!=null; previous=current,current = current.next) {
             if(current.vehicle.getId().equals(id)){
-                if(previous==null){
+                if(previous == null) {
                     head = current.next;
-                }else{
+                } else{
                     previous.next = current.next;
                 }
-                if(current==tail){
+                if(current == tail){
                     tail = previous;
                 }
                 size--;
@@ -63,14 +69,15 @@ class VehicleList {
         }
         return false;
     }
-    public List<Vehicle> toList(){
+
+
+    public List<Vehicle> toList() {
         List<Vehicle> result = new ArrayList<>();
-        for(Node current = head;current!=null; current=current.next){
+        for(Node current = head; current != null; current = current.next) {
             result.add(current.vehicle);
         }
         return result;
     }
-
 
 }
 
