@@ -37,6 +37,10 @@ public class Request {
         return state;
     }
 
+    public String getId() {
+        return id;
+    }
+
     static void main(String[] args) {
 
         Request routine = new Request("R1", "C", "P1", 1L, 0, RequestType.ROUTINE);
