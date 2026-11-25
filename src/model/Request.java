@@ -41,6 +41,17 @@ public class Request {
         return id;
     }
 
+    public int getUrgency() {
+        return urgency;
+    }
+    
+    public long getArrivalSequence() {
+        return arrivalSequence;
+    }
+    
+    public RequestType getType() {
+        return type;
+    }
     static void main(String[] args) {
 
         Request routine = new Request("R1", "C", "P1", 1L, 0, RequestType.ROUTINE);
