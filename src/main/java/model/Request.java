@@ -1,6 +1,4 @@
-package model;
-
-import java.lang.ref.ReferenceQueue;
+package main.java.model;
 
 public class Request {
 
