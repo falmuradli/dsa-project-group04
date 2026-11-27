@@ -1,5 +1,7 @@
-import java.util.*;
-import model.*;
+package main.java.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VehicleList {
     private static class Node {
