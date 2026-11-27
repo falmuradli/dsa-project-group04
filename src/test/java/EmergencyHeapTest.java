@@ -1,8 +1,7 @@
-package test.java;
 
-import main.java.model.EmergencyHeap;
-import main.java.model.Request;
-import main.java.model.RequestType;
+import model.EmergencyHeap;
+import model.Request;
+import model.RequestType;
 
 public class EmergencyHeapTest {
     private static Request emergency(String id, int urgency, long arrival) {
