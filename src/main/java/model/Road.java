@@ -2,8 +2,8 @@ package model;
 
 public class Road {
 
-    private String destination;
-    private int travelTime;
+    String destination;
+    int travelTime;
 
     public Road(String destination, int travelTime) {
         this.destination = destination;
